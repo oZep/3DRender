@@ -15,3 +15,6 @@ The projectors are parallel lines that run perpendicular to the plane of project
 We rotate the object using these matrix transformations, any rotation in 3d can be represented by rotations of YX, ZY, and ZX
 
 
+
+
+thanks to [this tutorial](http://blog.rogach.org/2015/08/how-to-create-your-own-simple-3d-render.html) for setting up the base pipeline + helping me understand basic 3D rendering at a low level
