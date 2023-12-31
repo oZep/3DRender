@@ -12,4 +12,6 @@ The projectors are parallel lines that run perpendicular to the plane of project
 
 <img width="661" alt="Parallel-Projection" src="https://github.com/oZep/3DRender/assets/97713154/17c71699-4fc1-409b-ac3a-a6e1f85ab23d">
 
+We rotate the object using these matrix transformations, any rotation in 3d can be represented by rotations of YX, ZY, and ZX
+
 

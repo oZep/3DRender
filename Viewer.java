@@ -16,6 +16,8 @@ public class Viewer {
         JSlider pitchSlider = new JSlider(SwingConstants.VERTICAL, -90, 90,0);
         plane.add(pitchSlider, BorderLayout.EAST);
 
+        
+
         JPanel renderPanel = new JPanel() {
             public void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g;
@@ -28,12 +30,21 @@ public class Viewer {
                 tris.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(100, 100, 100), Color.GREEN));
                 tris.add(new Triangle(new Vertex(-100, 100, -100), new Vertex(100, -100, -100), new Vertex(-100, -100, 100), Color.BLUE));
 
-                double heading = Math.toRadians(headingSlider.getValue());
-                Matrix3d transform = new Matrix3d(new double[] {
+                double heading = Math.toRadians(headingSlider.getValue()); // XZ rotation
+                Matrix3d headingTransform = new Matrix3d(new double[] {
                         Math.cos(heading), 0, -Math.sin(heading),
                         0, 1, 0,
                         Math.sin(heading), 0, Math.cos(heading)
                     });
+
+                double pitch = Math.toRadians(pitchSlider.getValue()); // YZ rotation
+                Matrix3d pitchTransform = new Matrix3d(new double[] {
+                        1, 0, 0,
+                        0, Math.cos(pitch), Math.sin(pitch),
+                        0, -Math.sin(pitch), Math.cos(pitch)
+                    });
+
+                Matrix3d transform = headingTransform.multiply(pitchTransform);
 
                 g2.translate(getWidth() / 2, getHeight() / 2);
                 g2.setColor(Color.WHITE);
@@ -49,15 +60,15 @@ public class Viewer {
                     path.closePath();
                     g2.draw(path);
                 }
-
-                headingSlider.addChangeListener(e -> renderPanel.repaint());
-                pitchSlider.addChangeListener(e -> renderPanel.repaint());
-
             }
         };
 
-
         plane.add(renderPanel, BorderLayout.CENTER);
+        
+        headingSlider.addChangeListener(e -> renderPanel.repaint());
+        pitchSlider.addChangeListener(e -> renderPanel.repaint());
+
+
 
         frame.setSize(400, 400);
         frame.setVisible(true);
