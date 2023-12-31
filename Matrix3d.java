@@ -7,10 +7,10 @@ public class Matrix3d {
 
     Matrix3d multiply(Matrix3d other) {
         double[] result = new double[9];
-        for (int row=0; row <3; row++) {
+        for (int row=0; row < 3; row++) {
             for (int col=0; col < 3; col++) {
                 for (int i = 0; i < 3; i++) {
-                    result[row*3+col] +=  this.values[row*3+1] * other.values[row*3+1];
+                    result[row * 3 + col] +=  this.values[row*3+i] * other.values[i*3+col];
                 }
             }
         }

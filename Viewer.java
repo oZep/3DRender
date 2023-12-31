@@ -64,10 +64,8 @@ public class Viewer {
         };
 
         plane.add(renderPanel, BorderLayout.CENTER);
-        
         headingSlider.addChangeListener(e -> renderPanel.repaint());
         pitchSlider.addChangeListener(e -> renderPanel.repaint());
-
 
 
         frame.setSize(400, 400);
