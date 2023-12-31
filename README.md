@@ -10,7 +10,6 @@ orthographic projection - representing a 3D object by disregarding a dimension a
 
 The projectors are parallel lines that run perpendicular to the plane of projection
 
-
-
+<img width="661" alt="Parallel-Projection" src="https://github.com/oZep/3DRender/assets/97713154/17c71699-4fc1-409b-ac3a-a6e1f85ab23d">
 
 
