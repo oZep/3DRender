@@ -37,6 +37,7 @@ public class Viewer {
                     tris = inflate(tris);
                 }
                 
+                
                 double heading = Math.toRadians(headingSlider.getValue()); // XZ rotation
                 Matrix3d headingTransform = new Matrix3d(new double[] {
                         Math.cos(heading), 0, -Math.sin(heading),
